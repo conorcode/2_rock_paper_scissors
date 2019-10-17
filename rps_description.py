@@ -26,38 +26,49 @@ p1_score = 0
 p2_score = 0
 
 while True:
+    p1_input = False
+    p2_input = False
+
     player_1 = input('P1 Pick your choice: ').lower()
     player_2 = input('P2 Pick your choice: ').lower()
 
     if player_1 == 'rock' or player_1 == 'paper' or player_1 == 'scissors':
-        if player_2 == 'rock' or player_2 == 'paper' or player_2 == 'scissors':
-            if player_1 == player_2:
-                print('tie')
-                p1_score += 1
-                p2_score += 1
-            elif player_1 == 'rock':
-                if player_2 == 'paper':
-                    print('player 2 wins')
-                    p2_score += 1
-                else:
-                    print('p1 wins')
-                    p1_score += 1
-            elif player_1 == 'paper':
-                if player_2 == 'scissors':
-                    print('player 2 wins')
-                    p2_score += 1
-                else:
-                    print('p1 wins')
-                    p1_score += 1
-            elif player_1 == 'scissors':
-                if player_2 == 'rock':
-                    print('player 2 wins')
-                    p2_score += 1
-                else:
-                    print('p1 wins')
-                    p1_score += 1
-        else:
-            print('wrong input for player 2')
-    else:
+        p1_input = True
+
+    if player_2 == 'rock' or player_2 == 'paper' or player_2 == 'scissors':
+        p2_input = True
+
+    if p1_input == False and p2_input == False:
+        print('Wrong input for both players')
+    elif p1_input == False and p2_input == True:
         print('Wrong input for player 1')
-    print ("The score is {} - {}".format(p1_score, p2_score))  
+    elif p1_input == True and p2_input == False:
+        print('Wrong input for player 2')
+    else:
+        if player_1 == player_2:
+            print('tie')
+            p1_score += 1
+            p2_score += 1
+        elif player_1 == 'rock':
+            if player_2 == 'paper':
+                print('player 2 wins')
+                p2_score += 1
+            else:
+                print('p1 wins')
+                p1_score += 1
+        elif player_1 == 'paper':
+            if player_2 == 'scissors':
+                print('player 2 wins')
+                p2_score += 1
+            else:
+                print('p1 wins')
+                p1_score += 1
+        elif player_1 == 'scissors':
+            if player_2 == 'rock':
+                print('player 2 wins')
+                p2_score += 1
+            else:
+                print('p1 wins')
+                p1_score += 1
+
+    print("The score is {} - {}".format(p1_score, p2_score))
